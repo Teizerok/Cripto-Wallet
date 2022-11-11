@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import walletBlock from "./components/walletBlock.vue";
+import walletBlock from "./view/walletBlock.vue";
 
 export default {
   name: "App",
@@ -14,5 +14,16 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./scss/nullstyle.scss";
+@import "./assets/scss/nullstyle.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@400;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Roboto:wght@400;900&display=swap");
+
+#app {
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+}
 </style>

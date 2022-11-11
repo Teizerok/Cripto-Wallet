@@ -7,7 +7,9 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.4.3",
     "core-js": "^3.8.3",
+    "pinia": "^2.0.23",
     "vue": "^3.2.13"
   },
   "devDependencies": {
