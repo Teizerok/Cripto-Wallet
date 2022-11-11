@@ -22,11 +22,17 @@
           </div>
         </div>
         <div class="currency__check">
-          <p>Всего: {{ currency.total }} {{ currency.shortName }}</p>
-          <p>В заявках: {{ currency.reserved }} {{ currency.shortName }}</p>
+          <p>
+            Всего: {{ normalizeCurrency(currency.total, currency.fiat) }}
+            {{ currency.shortName }}
+          </p>
+          <p>
+            В заявках: {{ normalizeCurrency(currency.reserved, currency.fiat) }}
+            {{ currency.shortName }}
+          </p>
           <p class="currency__check_current-currency">
             {{
-              normalizeCurrency(
+              normalizeCurrencyWallet(
                 actualExchange(currency.total, currency.shortName)
               )
             }}
@@ -53,6 +59,7 @@ export default {
       "currentCurrency",
       "fiatedFilter",
       "currencies",
+      "currentCurrencies",
       "currentRates",
     ]),
   },
@@ -64,7 +71,18 @@ export default {
     },
 
     //нормализация отображения валюты
-    normalizeCurrency(value) {
+    normalizeCurrency(value, fiat) {
+      // если валюта равна 0 или с ней что то не так будет возращен 0
+      if (!value) return 0;
+
+      if (fiat) {
+        return value.toFixed(2);
+      }
+      return value.toFixed(6);
+    },
+
+    //нормализация отображения валюты кошелька
+    normalizeCurrencyWallet(value) {
       // если валюта равна 0 или с ней что то не так будет возращен 0
       if (!value) return 0;
 
